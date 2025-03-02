@@ -37,7 +37,7 @@ def get_public_holidays(public_holidays_url: str, year: str) -> DataFrame:
         response.raise_for_status()
         holidays_json = response.json()
 
-        df = read_json(holidays_json)
+        df = DataFrame(holidays_json)
         df.drop(columns=["types", "counties"], errors="ignore", inplace=True)
         df["date"] = to_datetime(df["date"])
 
