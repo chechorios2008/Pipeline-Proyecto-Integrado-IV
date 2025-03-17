@@ -3,3 +3,4 @@
 -- y la segunda mostrará el total de cada uno.
 select order_status as estado_pedido, count(order_status) as Cantidad
 from olist_orders
+group by order_status
